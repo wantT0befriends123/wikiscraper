@@ -100,5 +100,5 @@ FEEDS = {
 LOG_LEVEL = 'INFO'
 
 DEPTH_LIMIT = 2  # Only follow links 2 levels deep
-CLOSESPIDER_PAGECOUNT = 1000  # Stop after 1000 pages
-CLOSESPIDER_TIMEOUT = 300  # Stop after 5 minutes (300 seconds)
+CLOSESPIDER_PAGECOUNT = 5000  # Stop after 5000 pages
+CLOSESPIDER_TIMEOUT = 6000  # Stop after 10 minutes (600 seconds)

@@ -4,11 +4,11 @@ from urllib.parse import urlparse
 import scrapy
 
 class WikiSpider(scrapy.Spider):
-    name = "wiki"
+    name = 'wiki'
     start_urls = [
         "https://en.wikipedia.org/wiki/Wikipedia"
     ]
-    estimated_total_pages = 63385514  # Set this to your estimated total number of pages
+    estimated_total_pages = 5000  # Set this to your estimated total number of pages
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -33,8 +33,8 @@ class WikiSpider(scrapy.Spider):
         yield {
             "url": relative_url, # Use the relative URL path
             "title": response.css('span.mw-page-title-main::text').get(), # Extract the title from the page
-            "links": all_links, # List of all links on the page
-            "num_links": num_all_links, # Number of all links on the page
+            "num_links": num_all_links # Number of all links on the page
+            #"links": all_links, # List of all links on the page
         }
 
         yield from response.follow_all(non_stub_article_links, callback=self.parse)
